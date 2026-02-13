@@ -56,7 +56,7 @@ public class TechShiftBusiness {
         int cartCount = 0;
         boolean shopping = true;
 
-        System.out.println("=== Welcome to TechShift Mobile PC Solutions ===");
+        System.out.println("=== Welcome to Josiah's PC Parts ===");
 
         // while loop for managing the menu as long as the user is using it
         while (shopping && cartCount < 10) {
@@ -71,6 +71,7 @@ public class TechShiftBusiness {
 
             // switch statement to alternate between what the user wants
             switch (choice) {
+                //add whatever service they want into the cart
                 case 1: case 2: case 3: case 4:
                     cart[cartCount] = catalog[choice - 1];
                     cartCount++;
@@ -79,6 +80,7 @@ public class TechShiftBusiness {
                 case 5:
                     shopping = false;
                     break;
+                //if none of the numbers are recognized, code won't break because of a default system
                 default:
                     System.out.println("Invalid selection.");
             }
@@ -88,7 +90,8 @@ public class TechShiftBusiness {
         System.out.print("\nEnter delivery hour (9-17): ");
         int hour = input.nextInt();
         
-        // checks if the hours actually match within that time frame
+        // checks if the hours actually match within that time frame, 
+        //IMPROVEMENT: make them actually reschedule
         if (hour < 9 || hour > 17) {
             System.out.println("Outside hours. Defaulting to 9 AM.");
             hour = 9;
@@ -97,6 +100,7 @@ public class TechShiftBusiness {
         // math for calculating the totals
         double subtotal = 0;
         String orderSummary = "--- Order Receipt ---\n";
+        //for loop to compile all the info needed that the user ordered and later on to calculate the prices
         for (int i = 0; i < cartCount; i++) {
             subtotal += cart[i].getPrice(); // Arithmetic Operator
             orderSummary += "- " + cart[i].getDescription() + "\n";
