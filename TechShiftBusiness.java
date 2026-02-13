@@ -9,8 +9,9 @@ import java.io.IOException;
 class Product implements ServiceItem {
     private String name;
     private double price;
-    
+    //constructor for initalizing
     public Product(String name, double price) {
+    //takes the data from the constructor parameter and saves it into the private member variable for this specific object/named 'this' to avoid confusion
         this.name = name;
         this.price = price;
     }
@@ -20,12 +21,13 @@ class Product implements ServiceItem {
     public String getDescription() { return this.name; }
 }
 
-// by using extends we allow this class to access previous methods in  the super class
+// by using extends we allow this class to access previous methods in  the super class such as getPrice
 class RepairService extends Product {
     private int difficulty; // 1 = Easy, 2 = Hard
 
     public RepairService(String name, double basePrice, int difficulty) {
-        super(name, basePrice); // Calls the Product constructor
+        //has to ask the Product constructor to call  them using this super call.
+        super(name, basePrice); 
         this.difficulty = difficulty;
     }
 
@@ -38,6 +40,7 @@ class RepairService extends Product {
 }
 
 public class TechShiftBusiness {
+    //main program function
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         
